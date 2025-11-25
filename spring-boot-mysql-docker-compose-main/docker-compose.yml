@@ -3,7 +3,7 @@ version: "3"
 services:
   application:
     build: .
-    image: spring-boot-mysql-app
+    image: spring-boot-mysql:latest
     container_name: spring-container
     ports:
       - "8080:8080"
