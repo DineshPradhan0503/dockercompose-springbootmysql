@@ -2,6 +2,7 @@ version: "3"
 
 services:
   application:
+    build: .
     image: spring-boot-mysql-app
     container_name: spring-container
     ports:
@@ -14,6 +15,7 @@ services:
       restart_policy:
         condition: on-failure
         max_attempts: 10
+
   mysqldb:
     image: mysql:8.0
     container_name: mysqldb-container
@@ -22,9 +24,8 @@ services:
     networks:
       - docker-mysql
     environment:
-      - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_DATABASE=test
+      MYSQL_ROOT_PASSWORD: tiger
+      MYSQL_DATABASE: test
+
 networks:
   docker-mysql:
-  
-  
